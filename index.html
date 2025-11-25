@@ -4,89 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descoberta de Harvard Chega ao Brasil e Surpreende Especialistas</title>
-    <!-- Carrega o Tailwind CSS para estilização rápida -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Usamos a fonte 'Inter' para uma aparência limpa e moderna, 
-           com fallback para fontes serifadas que lembram jornal */
+        /* Usamos a fonte 'Inter' para uma aparência limpa e moderna */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:wght@700&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
-            color: #1a202c; /* text-gray-900 */
+            color: #1a202c;
         }
         
-        /* Estilo do "Logo G1" como solicitado */
+        /* Estilo do "Logo G1" */
         .header-logo {
             font-family: 'Inter', sans-serif;
             font-weight: 900;
-            font-size: 2.5rem; /* 40px */
+            font-size: 2.5rem; 
             color: white;
-            letter-spacing: -2px; /* Detalhe jornalístico */
+            letter-spacing: -2px;
         }
 
-        /* Estilo do título principal do artigo */
+        /* Estilo do título principal */
         .article-title {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
         }
 
-        /* Estilo da "linha fina" (subtítulo) */
+        /* Estilo da linha fina */
         .article-lede {
-            font-size: 1.25rem; /* 20px */
-            color: #4a5568; /* text-gray-700 */
-            border-bottom: 1px solid #e2e8f0; /* text-gray-200 */
+            font-size: 1.25rem;
+            color: #4a5568;
+            border-bottom: 1px solid #e2e8f0;
             padding-bottom: 1rem;
         }
 
-        /* Detalhes de autoria e data */
+        /* Autor e data */
         .article-byline {
-            font-size: 0.875rem; /* 14px */
-            color: #718096; /* text-gray-600 */
+            font-size: 0.875rem;
+            color: #718096;
         }
 
-        /* Estilo dos parágrafos do corpo do texto */
+        /* Corpo do texto */
         .article-body p {
-            font-size: 1.125rem; /* 18px */
-            line-height: 1.8; /* leading-relaxed */
-            margin-bottom: 1.5rem; /* mb-6 */
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
 
-        /* Estilo para as imagens de placeholder */
+        /* Imagens */
         .article-image {
             width: 100%;
             border-radius: 8px;
             margin-bottom: 1.5rem;
-            background-color: #e2e8f0; /* bg-gray-200 */
+            background-color: #e2e8f0;
         }
 
-        /* BOTÃO ATUALIZADO
-          Fundo verde, como solicitado.
-        */
+        /* ÁREA DO VÍDEO (NOVO) */
+        .video-section {
+            background-color: #f0fdf4; /* Fundo verde bem claro */
+            border: 2px solid #349d46; /* Borda verde */
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .video-headline {
+            font-weight: 800;
+            color: #166534;
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            max-width: 350px; /* Limita largura para não ficar gigante no PC, ideal para vídeo vertical */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin: 0 auto; /* Centraliza */
+            display: block;
+        }
+
+        /* BOTÃO CTA VERDE */
         .cta-button {
             display: block;
             width: 100%;
             max-width: 480px;
-            margin: 2rem auto 0 auto;
+            margin: 1rem auto 0 auto;
             padding: 1rem;
             background-color: #349d46; /* Verde do seu site */
             color: white;
-            font-size: 1.25rem; /* 20px */
+            font-size: 1.25rem;
             font-weight: 700;
             text-align: center;
             border-radius: 8px;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            animation: pulse 2s infinite;
         }
         .cta-button:hover {
-            background-color: #2a7f38; /* Tom de verde mais escuro para o hover */
+            background-color: #2a7f38;
+            transform: scale(1.02);
         }
 
-        /* Estilo do rodapé de disclaimer (MUITO IMPORTANTE) */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(52, 157, 70, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(52, 157, 70, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(52, 157, 70, 0); }
+        }
+
+        /* Rodapé */
         .footer-disclaimer {
-            background-color: #f7fafc; /* bg-gray-100 */
-            color: #718096; /* text-gray-600 */
-            font-size: 0.75rem; /* 12px */
+            background-color: #f7fafc;
+            color: #718096;
+            font-size: 0.75rem;
             padding: 2rem;
             text-align: center;
             margin-top: 3rem;
@@ -95,21 +128,14 @@
 </head>
 <body class="bg-white">
 
-    <!-- 
-      HEADER (Cabeçalho)
-    -->
     <header class="bg-[#C4170C] p-4 shadow-md">
         <div class="text-center">
             <span class="header-logo">G1</span>
         </div>
     </header>
 
-    <!-- 
-      MAIN CONTENT (Conteúdo Principal)
-    -->
     <main class="max-w-3xl mx-auto p-4 sm:p-6 lg:p-8">
         <article>
-            <!-- Título e Subtítulo -->
             <h1 class="article-title text-3xl sm:text-4xl md:text-5xl mb-4">
                 Revolucionário: Descoberta de Harvard que "desbloqueia" o metabolismo chega ao Brasil este mês.
             </h1>
@@ -117,46 +143,44 @@
                 Novo composto natural, que atua diretamente na causa raiz do acúmulo de gordura, foi apresentado em simpósio internacional e promete ser um divisor de águas.
             </p>
 
-            <!-- Metadados (Detalhe Jornalístico) -->
             <div class="article-byline mb-6">
                 Por <strong>Juliana Alves</strong>, Editoria de Saúde | Atualizado em <strong>10 de novembro de 2025</strong>
             </div>
 
-            <!-- Corpo do Artigo -->
             <div class="article-body">
                 <p>Milhares de brasileiros que lutam diariamente contra a balança podem estar prestes a vivenciar uma nova era no controle de peso. Uma pesquisa recente da Universidade de Harvard, nos EUA, identificou um "sinalizador metabólico" até então desconhecido, que pode ser a chave para reverter anos de acúmulo de gordura teimosa.</p>
 
-                <!-- Imagem Placeholder 1 -->
                 <img src="https://img.freepik.com/fotos-premium/equipe-de-cientistas-examinando-tubos-de-ensaio-em-laboratorio-de-pesquisa_994764-117606.jpg" 
                      alt="Pesquisadores de Harvard em laboratório" 
-                     class="article-image"
-                     onerror="this.src='https://placehold.co/800x450/e2e8f0/718096?text=Imagem+Ilustrativa&font=inter'">
-                <p class="text-sm text-center text-gray-500 -mt-4 mb-6">Equipe de Harvard publicou os resultados na principal revista de endocrinologia do país.</p>
-
+                     class="article-image">
+                
                 <p>O estudo, liderado pelo Dr. David Sinclair, Ph.D., aponta que o problema não está apenas no que comemos, mas em como nosso corpo processa essa energia. "Descobrimos que, com o tempo, nosso corpo 'esquece' como queimar gordura de forma eficiente. Este novo composto age como um 'lembrete', reativando as vias metabólicas da juventude", explicou o Dr. Sinclair.</p>
 
                 <p>Apelidada de "fórmula de Boston", a descoberta foca em componentes naturais que, quando combinados, otimizam a função mitocondrial, fazendo com que o corpo pare de armazenar gordura e passe a usá-la como fonte primária de energia.</p>
                 
-                <!-- Imagem Placeholder 2 -->
                 <img src="https://img.freepik.com/fotos-premium/tendencia-ascendente-grafico-de-linha-vermelha-ilustra-crescimento-ou-progresso-positivo_780838-14518.jpg" 
                      alt="Gráfico de perda de peso" 
-                     class="article-image"
-                     onerror="this.src='https://placehold.co/800x400/e2e8f0/718096?text=Imagem+Ilustrativa&font=inter'">
+                     class="article-image">
 
-                <!-- 
-                  TEXTO ATUALIZADO
-                  Como solicitado, o nome da especialista foi alterado.
-                -->
                 <p>No Brasil, a fórmula foi licenciada e aprovada pela ANVISA (Agência Nacional de Vigilância Sanitária) e começou a ser distribuída este mês por uma clínica especializada em saúde e bem-estar.</p>
                 
                 <p>"É o que chamamos de lipólise inteligente", afirma a biomédica <strong>Camila Rocha</strong>, que acompanha os primeiros testes no país. "O paciente não precisa de dietas restritivas ou exercícios exaustivos. O composto ajuda o corpo a fazer o trabalho que ele naturalmente deveria fazer."</p>
 
-                <p>Devido à alta demanda e à complexidade da importação dos ingredientes puros, o primeiro lote disponibilizado no Brasil é limitado. A clínica responsável informou que as vendas serão feitas exclusivamente online, através do seu site oficial, para garantir a autenticidade do produto e evitar falsificações.</p>
+                <p>Devido à alta demanda e à complexidade da importação dos ingredientes puros, o primeiro lote disponibilizado no Brasil é limitado. A clínica responsável informou que as vendas serão feitas exclusivamente online, através do seu site oficial.</p>
 
-                <!-- 
-                  BOTÃO DE CTA (Call to Action)
-                  Este botão agora tem o fundo verde e leva para "vendas.html"
-                -->
+                <div class="video-section">
+                    <p class="video-headline">
+                        A Viih Tube aprova e confirma a qualidade do produto e diz sobre o que ele melhora na saúde:
+                    </p>
+                    
+                    <div class="video-wrapper">
+                        <video controls playsinline poster="images/LOGO-1.png">
+                            <source src="videos/depoimento-viih.mp4" type="video/mp4">
+                            Seu navegador não suporta a tag de vídeo.
+                        </video>
+                    </div>
+                    <p class="text-sm text-green-700 mt-2 italic">Clique para assistir ao relato.</p>
+                </div>
                 <a href="vendas.html" class="cta-button">
                     Acesse o site da clínica oficial
                 </a>
@@ -164,16 +188,12 @@
         </article>
     </main>
 
-    <!-- 
-      FOOTER (Rodapé)
-      Seção de disclaimer (aviso legal).
-    -->
     <footer class="footer-disclaimer">
         <p class="max-w-3xl mx-auto">
-            <strong>AVISO LEGAL:</strong> 
-            Este produto não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença. Os resultados podem variar de pessoa para pessoa. Consulte um profissional de saúde clicando no botão acima antes de iniciar qualquer suplementação.
             <br><br>
-            © 2025 American Fit tem Todos os Direitos Reservados.
+            Este produto não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença. Os resultados podem variar de pessoa para pessoa. Consulte sempre um profissional de saúde antes de iniciar qualquer suplementação.
+            <br><br>
+            © 2025 Todos os Direitos Reservados.
         </p>
     </footer>
 
